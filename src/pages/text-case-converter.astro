@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import TextCaseConverterComponent from '../components/TextCaseConverter.svelte';
+import HeroSection from '../components/HeroSection.astro';
+import MonetizationPlaceholder from '../components/MonetizationPlaceholder.astro';
+import ExploreMoreTools from '../components/ExploreMoreTools.astro';
+---
+
+<BaseLayout title="Free Online Text Case Converter – UPPERCASE, lowercase, Title Case"
+  description="Convert your text to uppercase, lowercase, title case, or sentence case instantly with our free Text Case Converter. No registration. Fast, private, and mobile-friendly.">
+  <slot name="header"><Header /></slot>
+
+  <HeroSection />
+
+  <MonetizationPlaceholder />
+
+  <TextCaseConverterComponent client:load />
+
+  <section class="mt-10 mb-8">
+    <h2 class="text-2xl font-bold mb-2 text-blue-800">Why Use an Online Text Case Converter?</h2>
+    <p class="mb-2 text-gray-700">
+      Our free Text Case Converter makes it easy to reformat your text for social media, academic writing, code, or business emails. Say goodbye to repetitive typing or accidental mistakes—just paste your text and choose the case you need.
+    </p>
+    <p class="mb-2 text-gray-700">
+      This tool works directly in your browser, requires no downloads, and is fully optimized for mobile and desktop devices.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold mb-2 text-blue-800">Frequently Asked Questions</h2>
+    <div class="mb-4">
+      <strong>How do I use the Text Case Converter?</strong>
+      <p class="text-gray-700">Paste or type your text in the input box, select your desired case style, and the result appears instantly below. Click "Copy Result" to copy your formatted text.</p>
+    </div>
+    <div class="mb-4">
+      <strong>Is my text saved or sent to a server?</strong>
+      <p class="text-gray-700">No. Everything is processed locally in your browser for maximum privacy and speed.</p>
+    </div>
+    <div class="mb-4">
+      <strong>What cases can I convert to?</strong>
+      <p class="text-gray-700">You can convert to UPPERCASE, lowercase, Title Case, and Sentence case.</p>
+    </div>
+    <div class="mb-4">
+      <strong>Is this tool free?</strong>
+      <p class="text-gray-700">Yes! All features are 100% free and always will be.</p>
+    </div>
+  </section>
+
+  <ExploreMoreTools />
+
+  <slot name="footer"><Footer /></slot>
+  </head>
+</BaseLayout>

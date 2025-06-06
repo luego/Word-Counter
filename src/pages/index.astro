@@ -3,41 +3,31 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import WordCounter from "../components/WordCounter.svelte";
+import HeroSection from '../components/HeroSection.astro';
+import MonetizationPlaceholder from '../components/MonetizationPlaceholder.astro';
+import ExploreMoreTools from '../components/ExploreMoreTools.astro';
 ---
-
-<BaseLayout
-  title="Free Online Word Counter – Accurate Word & Character Count"
-  description="Count words and characters instantly with our free online Word Counter. No registration. Fast, private, and mobile-friendly."
->
+<BaseLayout title="Free Online Text Tools – Word Counter, Text Case Converter & More"
+  description="A suite of free online text tools: word counter, text case converter, and more. Fast, private, and mobile-friendly for writers, students, and professionals.">
   <slot name="header"><Header /></slot>
 
-  <h1 class="text-3xl sm:text-4xl font-bold mb-2 text-center text-blue-800">
-    Free Online Word Counter
-  </h1>
-  <p class="text-lg mb-8 text-center text-gray-600 max-w-lg mx-auto">
-    Instantly count the number of words and characters in your text. Perfect for
-    writers, students, and social media creators. Your text never leaves your
-    browser.
-  </p>
+  <HeroSection />
 
-  <!-- Placeholder for AdSense or Affiliate snippet -->
-  <div class="w-full flex justify-center mb-8">
-    <div
-      class="bg-gray-200 rounded-xl text-gray-400 py-4 px-6 text-center min-w-[200px] min-h-[80px] border border-dashed border-gray-400"
-    >
-      [AdSense / Affiliate snippet goes here]
-    </div>
+  <MonetizationPlaceholder />
+
+  <!-- Default tool on homepage -->
+  <div>
+    <h2 class="text-2xl font-bold mb-2 text-blue-800 text-center">Word Counter</h2>
+    <p class="text-md text-gray-600 mb-6 text-center max-w-xl mx-auto">
+      Paste or type your text to instantly count words, characters, and estimate reading time. 100% free and private—your text never leaves your browser.
+    </p>
+    <WordCounter client:load />
   </div>
-
-  <WordCounter client:load />
 
   <section class="mt-8 mb-8">
     <h2 class="text-xl font-semibold mb-2">What is a Word Counter?</h2>
     <p class="mb-2 text-gray-700">
-      A word counter is a simple tool that helps you keep track of how many
-      words and characters your text contains. It's essential for students,
-      writers, bloggers, and anyone who needs to meet word limits or analyze
-      their content length.
+      A word counter is a simple tool that helps you keep track of how many words and characters your text contains. It's essential for students, writers, bloggers, and anyone who needs to meet word limits or analyze their content length.
     </p>
   </section>
 
@@ -50,59 +40,21 @@ import WordCounter from "../components/WordCounter.svelte";
       <li>✔️ Mobile and desktop friendly</li>
     </ul>
   </section>
-  <section class="mt-10 mb-8">
-    <h2 class="text-2xl font-bold mb-2 text-blue-800">
-      Why Use an Online Word Counter?
-    </h2>
-    <p class="mb-2 text-gray-700">
-      Our free Word Counter helps writers, students, and professionals instantly
-      check the number of words and characters in any text. Whether you're
-      writing an essay, a social media post, or a blog article, our tool ensures
-      you meet requirements and stay concise.
-    </p>
-    <p class="mb-2 text-gray-700">
-      Unlike desktop software, this online word counter works directly in your
-      browser, requires no downloads or sign-up, and keeps your data private.
-      It’s optimized for mobile and desktop, lightning fast, and 100% free.
-    </p>
-    <p class="mb-2 text-gray-700">
-      Simply paste or type your text, and get instant results for words,
-      characters, and estimated reading time.
-    </p>
-  </section>
+
   <section class="mb-12">
-    <h2 class="text-2xl font-bold mb-2 text-blue-800">
-      Frequently Asked Questions
-    </h2>
+    <h2 class="text-xl font-semibold mb-2">Frequently Asked Questions</h2>
     <div class="mb-4">
       <strong class="block mb-1">Is my text saved or sent to a server?</strong>
-      <p class="text-gray-700">
-        No, everything is processed locally in your browser. Your privacy is
-        100% guaranteed.
-      </p>
+      <p class="text-gray-700">No, everything is processed locally in your browser. Your privacy is 100% guaranteed.</p>
     </div>
     <div class="mb-4">
-      <strong>What languages are supported?</strong>
-      <p class="text-gray-700">
-        It works with any language that uses spaces to separate words.
-      </p>
-    </div>
-    <div class="mb-4">
-      <strong class="block mb-1"
-        >Can I use this for my essays or assignments?</strong
-      >
-      <p class="text-gray-700">
-        Yes! This tool is perfect for checking word counts on essays, homework,
-        blog posts, and more.
-      </p>
-    </div>
-    <div class="mb-4">
-      <strong>Does this work on mobile?</strong>
-      <p class="text-gray-700">
-        Yes, our word counter is fully mobile and desktop responsive.
-      </p>
+      <strong class="block mb-1">Can I use this for my essays or assignments?</strong>
+      <p class="text-gray-700">Yes! This tool is perfect for checking word counts on essays, homework, blog posts, and more.</p>
     </div>
   </section>
 
+  <ExploreMoreTools />
+
   <slot name="footer"><Footer /></slot>
+
 </BaseLayout>

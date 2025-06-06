@@ -1,0 +1,17 @@
+---
+const {
+    title = "Free Online Text Tools",
+    subtitle = "Instantly analyze and transform your text. <br class='hidden sm:inline' /> From word counts to case conversions, our free, private tools help writers, students, and professionals work smarter—no registration needed.",
+} = Astro.props;
+---
+
+<section class="py-8 mb-1 text-center">
+    <h1
+        class="text-4xl sm:text-5xl font-extrabold mb-4 text-blue-800 drop-shadow"
+    >
+        {title}
+    </h1>
+    <p class="text-lg sm:text-xl text-gray-700 mb-6 max-w-2xl mx-auto">
+        <span set:html={subtitle} />
+    </p>
+</section>

@@ -1,0 +1,25 @@
+---
+// src/components/ExploreMoreTools.astro
+type Tool = { href: string; label: string };
+
+const {
+    tools = [
+        { href: "/word-counter", label: "Word Counter" },
+        { href: "/character-counter", label: "Character Counter" },
+        // Add more tools as needed
+    ],
+}: { tools?: Tool[] } = Astro.props;
+---
+
+<section class="mb-10 text-center">
+    {
+        tools.map((tool: Tool) => (
+            <a
+                href={tool.href}
+                class="text-blue-700 font-bold underline underline-offset-4 hover:text-blue-900 transition text-lg px-2 py-1"
+            >
+                {tool.label}
+            </a>
+        ))
+    }
+</section>
