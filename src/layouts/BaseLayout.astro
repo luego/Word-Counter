@@ -1,0 +1,65 @@
+---
+const {
+  title = "Free Online Word Counter",
+  description = "Instantly count words and characters in your text with our free online tool.",
+} = Astro.props;
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="Free Online Word Counter" />
+    <meta property="og:description" content="Instantly count words and characters in your text. Free, private, mobile-friendly." />
+    <meta property="og:image" content="/og-image-word-counter.png" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="/og-image-word-counter.png" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is my text saved?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No, your text is never uploaded or stored. Everything runs in your browser for maximum privacy."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does this work on mobile?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, our word counter is fully mobile and desktop responsive."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What languages are supported?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It works with any language that uses spaces to separate words."
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div
+      class="min-h-screen flex flex-col bg-gray-50 text-gray-900 transition-colors"
+    >
+      <slot name="header" />
+      <main class="flex-1 w-full max-w-2xl mx-auto px-4 py-8"><slot /></main>
+      <slot name="footer" />
+    </div>
+  </body>
+</html>
