@@ -1,9 +1,23 @@
 ---
 // src/components/MonetizationPlaceholder.astro
-const { text = '[AdSense / Affiliate snippet goes here]' } = Astro.props;
 ---
 <div class="w-full flex justify-center mb-8">
-  <div class="bg-gray-200 rounded-xl text-gray-400 py-4 px-6 text-center min-w-[200px] min-h-[80px] border border-dashed border-gray-400">
-    {text}
+  <div
+    class="bg-gray-200 rounded-xl text-gray-400 py-4 px-6 text-center min-w-[200px] min-h-[80px] border border-dashed border-gray-400"
+  >
+    <script is:inline type="text/javascript">
+      atOptions = {
+        key: "76edaf50bf01d3f0d03d7058d78ffef5",
+        format: "iframe",
+        height: 60,
+        width: 468,
+        params: {},
+      };
+    </script>
+    <script
+      is:inline
+      type="text/javascript"
+      src="//www.highperformanceformat.com/76edaf50bf01d3f0d03d7058d78ffef5/invoke.js"
+    ></script>
   </div>
 </div>
