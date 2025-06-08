@@ -4,6 +4,7 @@ const {
   description = "Instantly count words and characters in your text with our free online tool.",
 } = Astro.props;
 import "../styles/global.css";
+import { GoogleAnalytics } from '@digi4care/astro-google-analytics';
 ---
 
 <!doctype html>
@@ -52,6 +53,7 @@ import "../styles/global.css";
         ]
       }
     </script>
+    <GoogleAnalytics id="G-T2NYWMKKFC" partytown={false} />
   </head>
   <body>
     <div
