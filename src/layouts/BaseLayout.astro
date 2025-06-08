@@ -4,7 +4,6 @@ const {
   description = "Instantly count words and characters in your text with our free online tool.",
 } = Astro.props;
 import "../styles/global.css";
-import { GoogleAnalytics } from '@digi4care/astro-google-analytics';
 ---
 
 <!doctype html>
@@ -14,8 +13,14 @@ import { GoogleAnalytics } from '@digi4care/astro-google-analytics';
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta property="og:title" content="Free Online Text Tools – Word Counter, Text Case Converter & More" />
-    <meta property="og:description" content="Instantly count words and characters in your text. Free, private, mobile-friendly." />
+    <meta
+      property="og:title"
+      content="Free Online Text Tools – Word Counter, Text Case Converter & More"
+    />
+    <meta
+      property="og:description"
+      content="Instantly count words and characters in your text. Free, private, mobile-friendly."
+    />
     <meta property="og:image" content="/og-image-word-counter.png" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -53,7 +58,35 @@ import { GoogleAnalytics } from '@digi4care/astro-google-analytics';
         ]
       }
     </script>
-    <GoogleAnalytics id="G-T2NYWMKKFC" partytown={false} />
+    <script is:inline type="text/javascript">
+      atOptions = {
+        key: "76edaf50bf01d3f0d03d7058d78ffef5",
+        format: "iframe",
+        height: 60,
+        width: 468,
+        params: {},
+      };
+    </script>
+    <script
+      is:inline
+      type="text/javascript"
+      src="//www.highperformanceformat.com/76edaf50bf01d3f0d03d7058d78ffef5/invoke.js"
+    ></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      is:inline
+      src="https://www.googletagmanager.com/gtag/js?id=G-T2NYWMKKFC"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-T2NYWMKKFC");
+    </script>
   </head>
   <body>
     <div
