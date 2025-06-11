@@ -6,6 +6,7 @@ const {
     tools = [
         { href: "/word-counter", label: "Word Counter" },
         { href: "/character-counter", label: "Character Counter" },
+        { href: "/remove-duplicate-lines", label: "Remove Duplicate Lines" },
         // Add more tools as needed
     ],
 }: { tools?: Tool[] } = Astro.props;
@@ -22,4 +23,22 @@ const {
             </a>
         ))
     }
+    <div class="flex justify-center mt-6">
+      <div>
+        <script is:inline type="text/javascript">
+          atOptions = {
+            key: "d0fc2a2d7fb379a804a86df795b82be1",
+            format: "iframe",
+            height: 250,
+            width: 250,
+            params: {},
+          };
+        </script>
+        <script
+          is:inline
+          type="text/javascript"
+          src="//www.highperformanceformat.com/d0fc2a2d7fb379a804a86df795b82be1/invoke.js"
+        ></script>
+      </div>
+    </div>
 </section>

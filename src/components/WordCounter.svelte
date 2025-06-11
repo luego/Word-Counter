@@ -2,7 +2,6 @@
   // --- Accessibility & UX ---
   let text = "";
   let copySuccess = false;
-  let showClear = false;
   const CHAR_LIMIT = 10000;
 
   // --- Utility regexes ---

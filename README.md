@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b5489db7-626d-40f0-bbb4-c6cfbf5320ae/deploy-status)](https://app.netlify.com/projects/fastidious-rugelach-4f2ba4/deploys)
+
 # Online Text Tools
 
 Free, private, and instant text utilities for writers, students, and professionals.  
