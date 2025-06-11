@@ -6,3 +6,21 @@
               color 0.2s ease-in-out,
               border-color 0.2s ease-in-out;
 }
+
+/* Ad/CTA Placeholder Styles (optional, for custom tweaks) */
+.ad-placeholder {
+  background-color: #e5e7eb; /* Tailwind bg-gray-200 */
+  border-radius: 0.25rem;    /* Tailwind rounded */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;            /* Tailwind text-gray-500 */
+  font-size: 0.875rem;       /* Tailwind text-sm */
+}
+
+@media (max-width: 767px) {
+  /* Hide side ad columns on mobile */
+  .ad-col {
+    display: none !important;
+  }
+}
