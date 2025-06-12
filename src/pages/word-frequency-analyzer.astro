@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WordFrequencyAnalyzerComponent from '../components/WordFrequencyAnalyzer.svelte';
+import HeroSection from '../components/HeroSection.astro';
+import MonetizationPlaceholder from '../components/MonetizationPlaceholder.astro';
+import ExploreMoreTools from '../components/ExploreMoreTools.astro';
+---
+
+<BaseLayout title="Word Frequency Analyzer – Free Online Tool"
+  description="Analyze your text and discover the most frequent words instantly. Find word frequency for SEO, writing, or study—free, fast, private, with a chart.">
+  <slot name="header"><Header /></slot>
+
+  <HeroSection />
+
+  <MonetizationPlaceholder />
+
+  <WordFrequencyAnalyzerComponent client:load />
+
+  <section class="mt-10 mb-8">
+    <h2 class="text-2xl font-bold mb-2 text-blue-800">What is a Word Frequency Analyzer?</h2>
+    <p class="mb-2 text-gray-700">
+      A word frequency analyzer counts how often each word appears in your text, helping you spot overused terms, keywords, and writing patterns. It’s great for SEO, editing, research, and language learning.
+    </p>
+    <p class="mb-2 text-gray-700">
+      Our tool is instant, works in your browser, and never stores your data.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold mb-2 text-blue-800">Frequently Asked Questions</h2>
+    <div class="mb-4">
+      <strong>How does this tool work?</strong>
+      <p class="text-gray-700">
+        Paste or type your text, and the analyzer counts how many times each word appears. Results update instantly, with a table and a chart for easy understanding.
+      </p>
+    </div>
+    <div class="mb-4">
+      <strong>Is my text secure?</strong>
+      <p class="text-gray-700">
+        100% private! All processing is done locally in your browser—your text is never uploaded or saved.
+      </p>
+    </div>
+    <div class="mb-4">
+      <strong>Who should use this?</strong>
+      <p class="text-gray-700">
+        Writers, bloggers, students, SEO professionals, editors, teachers, and language learners.
+      </p>
+    </div>
+    <div class="mb-4">
+      <strong>Does it ignore punctuation and case?</strong>
+      <p class="text-gray-700">
+        Yes, the tool ignores punctuation and is not case sensitive—so "Word" and "word" are counted together.
+      </p>
+    </div>
+  </section>
+
+    <ExploreMoreTools />
+
+  <slot name="footer"><Footer /></slot>
+
+</BaseLayout>
