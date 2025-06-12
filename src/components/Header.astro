@@ -1,29 +1,52 @@
-<header class="py-6 bg-white shadow-sm">
-  <div
-    class="container mx-auto flex flex-wrap justify-between items-center px-4"
-  >
-    <a href="/" class="font-bold text-xl text-blue-700 tracking-tight"
-      >TextTools</a
-    >
-    <nav class="space-x-2 text-sm">
-      <a href="/" class="text-gray-700 hover:text-blue-700 transition"
-        >Word Counter</a
-      >
-      <a
-        href="/text-case-converter"
-        class="text-gray-700 hover:text-blue-700 transition"
-        >Text Case Converter</a
-      >
-      <a
-        href="/remove-duplicate-lines"
-        class="text-gray-700 hover:text-blue-700 transition"
-        >Remove Duplicate Lines </a
-      >
-      <a
-        href="/word-frequency-analyzer"
-        class="text-gray-700 hover:text-blue-700 transition"
-        >Word Frequency Analyzer</a
-      >
-    </nav>
-  </div>
+<header class="bg-white shadow-md">
+  <nav class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+    <a href="/" class="text-2xl font-extrabold text-blue-700">TextTools</a>
+    <button class="md:hidden p-2" id="nav-toggle" aria-label="Open menu">
+      <svg class="w-6 h-6 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+    <ul id="nav-menu" class="hidden md:flex gap-6 text-base font-semibold text-gray-700">
+      <li><a href="/" class="px-3 py-2 rounded-lg hover:bg-blue-50 hover:text-blue-700 transition">Word Counter</a></li>
+      <li><a href="/text-case-converter" class="px-3 py-2 rounded-lg hover:bg-blue-50 hover:text-blue-700 transition">Text Case Converter</a></li>
+      <li><a href="/remove-duplicate-lines" class="px-3 py-2 rounded-lg hover:bg-blue-50 hover:text-blue-700 transition">Remove Duplicate Lines</a></li>
+      <li><a href="/word-frequency-analyzer" class="px-3 py-2 rounded-lg hover:bg-blue-50 hover:text-blue-700 transition">Word Frequency Analyzer</a></li>
+    </ul>
+    <ul id="nav-menu-mobile" class="md:hidden hidden flex-col bg-white absolute right-4 top-16 shadow-lg rounded-lg p-4 gap-2 z-50">
+      <li><a href="/" class="block px-3 py-2 rounded-lg hover:bg-blue-50 hover:text-blue-700 transition">Word Counter</a></li>
+      <li><a href="/text-case-converter" class="block px-3 py-2 rounded-lg hover:bg-blue-50 hover:text-blue-700 transition">Text Case Converter</a></li>
+      <li><a href="/remove-duplicate-lines" class="block px-3 py-2 rounded-lg hover:bg-blue-50 hover:text-blue-700 transition">Remove Duplicate Lines</a></li>
+      <li><a href="/word-frequency-analyzer" class="block px-3 py-2 rounded-lg hover:bg-blue-50 hover:text-blue-700 transition">Word Frequency Analyzer</a></li>
+    </ul>
+  </nav>
+  <script is:inline>
+    const btn = document.getElementById('nav-toggle');
+    const menuMobile = document.getElementById('nav-menu-mobile');
+
+    btn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menuMobile.classList.toggle('hidden');
+      menuMobile.classList.toggle('flex');
+    });
+
+    // Hide menu when clicking outside or on a link
+    document.addEventListener('click', (e) => {
+      if (
+        !menuMobile.classList.contains('hidden') &&
+        !menuMobile.contains(e.target) &&
+        e.target !== btn
+      ) {
+        menuMobile.classList.add('hidden');
+        menuMobile.classList.remove('flex');
+      }
+    });
+
+    // Hide menu when clicking a link inside the menu
+    menuMobile.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuMobile.classList.add('hidden');
+        menuMobile.classList.remove('flex');
+      });
+    });
+  </script>
 </header>
