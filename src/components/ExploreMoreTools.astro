@@ -4,10 +4,10 @@ type Tool = { href: string; label: string };
 
 const {
     tools = [
-        { href: "/word-counter", label: "Word Counter" },
+        { href: "/", label: "Word Counter" },
         { href: "/character-counter", label: "Character Counter" },
         { href: "/remove-duplicate-lines", label: "Remove Duplicate Lines" },
-        // Add more tools as needed
+        { href: "/word-frequency-analyzer", label: "Word Frequency Analyzer" }
     ],
 }: { tools?: Tool[] } = Astro.props;
 ---
