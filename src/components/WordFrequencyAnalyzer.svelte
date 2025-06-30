@@ -1,5 +1,6 @@
 <script>
   import { onMount } from 'svelte';
+  import AppTextarea from './AppTextarea.svelte';
   
   let text = '';
   let wordFrequency = [];
@@ -7,14 +8,15 @@
   let chartCanvas;
   let chart;
 
-  function analyzeText() {
-    if (!text.trim()) {
+  function analyzeText(currentText) {
+    console.log('analyzeText called, text:', currentText);
+    if (!currentText.trim()) {
       wordFrequency = [];
       return;
     }
 
     // Clean and split text into words
-    const words = text
+    const words = currentText
       .toLowerCase()
       .replace(/[^\w\s]/g, '') // Remove punctuation
       .split(/\s+/)
@@ -34,7 +36,8 @@
   }
 
   // Analyze on text change
-  $: analyzeText();
+  $: console.log('text changed:', text);
+  $: analyzeText(text);
 
   async function copyToClipboard() {
     if (!text) return;
@@ -128,13 +131,12 @@
     </button>
   </div>
 
-  <textarea
-    class="w-full border border-gray-300 rounded-lg px-4 py-3 font-mono text-base md:text-lg lg:text-xl bg-white text-gray-900 resize-y focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-    rows="8"
+  <AppTextarea
     bind:value={text}
     placeholder="Paste or type your text here to analyze word frequency..."
-    aria-label="Text to analyze"
-  ></textarea>
+    rows={8}
+    ariaLabel="Text to analyze"
+  />
 
   {#if wordFrequency.length > 0}
     <div class="mt-6">

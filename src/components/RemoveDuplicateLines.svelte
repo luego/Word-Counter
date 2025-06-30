@@ -1,4 +1,6 @@
 <script>
+  import AppTextarea from './AppTextarea.svelte';
+
   let input = '';
   let output = '';
   let trimEmpty = false;
@@ -89,13 +91,13 @@
 <div class="bg-white rounded-2xl shadow-lg p-6 mb-8 transition-colors">
   <div class="mb-4">
     <label for="input-textarea" class="font-semibold text-gray-700 mb-2 block">Input Text:</label>
-    <textarea
+    <AppTextarea
       id="input-textarea"
-      class="w-full border border-gray-300 rounded-lg px-4 py-3 text-base bg-white text-gray-900 resize-y focus:outline-none focus:ring-2 focus:ring-blue-500"
-      rows="8"
       bind:value={input}
       placeholder="Paste your text here, one item per line..."
-    ></textarea>
+      rows={8}
+      ariaLabel="Input Text"
+    />
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
@@ -155,13 +157,14 @@
 
   <div class="mb-4">
     <label for="output-textarea" class="font-semibold text-gray-700 mb-2 block">Output (No Duplicates):</label>
-    <textarea
+    <AppTextarea
       id="output-textarea"
-      class="w-full border border-gray-300 rounded-lg px-4 py-3 text-base bg-gray-50 text-gray-900 resize-y focus:outline-none focus:ring-2 focus:ring-blue-500"
-      rows="8"
       value={output}
-      readonly
-    ></textarea>
+      placeholder="Output (No Duplicates)"
+      rows={8}
+      ariaLabel="Output (No Duplicates)"
+      readonly={true}
+    />
   </div>
   
   <div class="flex gap-4 justify-center">

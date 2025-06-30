@@ -1,4 +1,5 @@
 <script>
+  import AppTextarea from './AppTextarea.svelte';
   // --- Accessibility & UX ---
   let text = "";
   let copySuccess = false;
@@ -76,22 +77,22 @@
   $: exportFilename = `word-count-${new Date().toISOString().split('T')[0]}`;
 </script>
 
-<div class="bg-white rounded-2xl shadow-lg p-6 mb-8 transition-colors">
-  <div class="flex flex-wrap justify-between items-center mb-4 gap-2">
-    <div class="flex items-center gap-2">
-      <label class="inline-flex items-center gap-2 text-sm text-gray-700">
+<div class="card bg-white shadow-xl rounded-2xl p-10 mb-10 w-full max-w-4xl mx-auto">
+  <div class="flex flex-wrap justify-between items-center mb-6 gap-4">
+    <div class="flex items-center gap-3">
+      <label class="inline-flex items-center gap-2 text-base text-gray-700">
         <input 
           type="checkbox" 
           bind:checked={showSpaces} 
-          class="rounded text-blue-700"
+          class="checkbox checkbox-primary"
         />
         Include spaces in character count
       </label>
     </div>
-    <div class="flex gap-2">
+    <div class="flex gap-3">
       <button
         type="button"
-        class="px-3 py-1 rounded-lg border text-sm font-semibold transition border-gray-300 bg-gray-100 text-gray-700 hover:bg-blue-100"
+        class="btn btn-sm btn-outline btn-primary"
         on:click={trimText}
         aria-label="Trim whitespace"
       >
@@ -99,7 +100,7 @@
       </button>
       <button
         type="button"
-        class="px-3 py-1 rounded-lg border text-sm font-semibold transition border-gray-300 bg-gray-100 text-gray-700 hover:bg-blue-100 disabled:opacity-50"
+        class="btn btn-sm btn-outline btn-accent"
         on:click={copyText}
         aria-label="Copy text"
         disabled={!text}
@@ -112,7 +113,7 @@
       </button>
       <button
         type="button"
-        class="px-3 py-1 rounded-lg border text-sm font-semibold transition border-gray-300 bg-gray-100 text-gray-700 hover:bg-red-100 disabled:opacity-50"
+        class="btn btn-sm btn-outline btn-error"
         on:click={clearText}
         aria-label="Clear text"
         disabled={!text}
@@ -122,60 +123,59 @@
     </div>
   </div>
   
-  <textarea
-    class="w-full border border-gray-300 rounded-lg px-4 py-3 font-mono text-base md:text-lg lg:text-xl bg-white text-gray-900 resize-y focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-    rows="8"
+  <AppTextarea
     bind:value={text}
     placeholder="Paste or type your text here..."
-    aria-label="Text to analyze"
-    aria-describedby="counter-stats {charLimitExceeded ? 'char-limit-warning' : ''}"
+    rows={8}
+    ariaLabel="Text to analyze"
+    ariaDescribedby={`counter-stats${charLimitExceeded ? ' char-limit-warning' : ''}`}
     maxlength={CHAR_LIMIT}
-  ></textarea>
+  />
   
   {#if charLimitExceeded}
-    <div id="char-limit-warning" class="text-red-600 text-sm mt-1">Character limit exceeded ({CHAR_LIMIT} max).</div>
+    <div id="char-limit-warning" class="text-red-600 text-base mt-2">Character limit exceeded ({CHAR_LIMIT} max).</div>
   {/if}
   
   <div
     id="counter-stats"
-    class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-4 text-base font-medium text-gray-700 border border-gray-200 rounded-lg p-4 bg-gray-50 shadow-sm"
+    class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mt-6 text-lg font-medium text-gray-700 border border-gray-200 rounded-lg p-6 bg-gray-50 shadow-sm"
   >
     <div class="text-center">
-      <span class="text-xl text-blue-700 font-bold block">{wordCount}</span>
-      <span class="text-sm">Words</span>
+      <span class="text-2xl text-blue-700 font-bold block">{wordCount}</span>
+      <span class="text-base">Words</span>
     </div>
     <div class="text-center">
-      <span class="text-xl text-blue-700 font-bold block">{showSpaces ? charCount : charCountNoSpaces}</span>
-      <span class="text-sm">Characters {showSpaces ? '' : '(no spaces)'}</span>
+      <span class="text-2xl text-blue-700 font-bold block">{showSpaces ? charCount : charCountNoSpaces}</span>
+      <span class="text-base">Characters {showSpaces ? '' : '(no spaces)'}</span>
     </div>
     <div class="text-center">
-      <span class="text-xl text-blue-700 font-bold block">{sentenceCount}</span>
-      <span class="text-sm">Sentences</span>
+      <span class="text-2xl text-blue-700 font-bold block">{sentenceCount}</span>
+      <span class="text-base">Sentences</span>
     </div>
     <div class="text-center">
-      <span class="text-xl text-blue-700 font-bold block">{paragraphCount}</span>
-      <span class="text-sm">Paragraphs</span>
+      <span class="text-2xl text-blue-700 font-bold block">{paragraphCount}</span>
+      <span class="text-base">Paragraphs</span>
     </div>
     <div class="text-center">
-      <span class="text-xl text-blue-700 font-bold block">{formatReadingTime(readingTime)}</span>
-      <span class="text-sm">Reading time</span>
+      <span class="text-2xl text-blue-700 font-bold block">{formatReadingTime(readingTime)}</span>
+      <span class="text-base">Reading time</span>
     </div>
   </div>
 
   <!-- Additional Statistics -->
   {#if wordCount > 0}
-    <div class="mt-4 grid grid-cols-2 md:grid-cols-3 gap-4 text-sm text-gray-600 border border-gray-200 rounded-lg p-4 bg-gray-50">
+    <div class="mt-6 grid grid-cols-2 md:grid-cols-3 gap-6 text-base text-gray-600 border border-gray-200 rounded-lg p-6 bg-gray-50">
       <div class="text-center">
-        <span class="text-lg text-green-700 font-bold block">{uniqueWords}</span>
-        <span class="text-xs">Unique Words</span>
+        <span class="text-xl text-green-700 font-bold block">{uniqueWords}</span>
+        <span class="text-sm">Unique Words</span>
       </div>
       <div class="text-center">
-        <span class="text-lg text-green-700 font-bold block">{avgWordLength}</span>
-        <span class="text-xs">Avg Word Length</span>
+        <span class="text-xl text-green-700 font-bold block">{avgWordLength}</span>
+        <span class="text-sm">Avg Word Length</span>
       </div>
       <div class="text-center">
-        <span class="text-lg text-green-700 font-bold block">{Math.round((uniqueWords / wordCount) * 100)}%</span>
-        <span class="text-xs">Vocabulary Diversity</span>
+        <span class="text-xl text-green-700 font-bold block">{Math.round((uniqueWords / wordCount) * 100)}%</span>
+        <span class="text-sm">Vocabulary Diversity</span>
       </div>
     </div>
   {/if}

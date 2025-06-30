@@ -1,36 +1,25 @@
-<header class="bg-white shadow-sm border-b border-gray-200">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between items-center py-4">
-      <div class="flex items-center">
-        <a href="/" class="text-xl font-bold text-blue-600 hover:text-blue-800 transition-colors">
-          Text Toolbox
-        </a>
-      </div>
-      <nav class="hidden md:flex space-x-8">
-        <a href="/" class="text-gray-700 hover:text-blue-600 transition-colors">Word Counter</a>
-        <a href="/text-case-converter" class="text-gray-700 hover:text-blue-600 transition-colors">Case Converter</a>
-        <a href="/word-frequency-analyzer" class="text-gray-700 hover:text-blue-600 transition-colors">Frequency Analyzer</a>
-        <a href="/remove-duplicate-lines" class="text-gray-700 hover:text-blue-600 transition-colors">Remove Duplicates</a>
-      </nav>
-      <button class="md:hidden p-2" id="nav-toggle" aria-label="Open menu">
-        <svg class="w-6 h-6 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
+---
+// Professional DaisyUI Navbar
+---
+
+<div class="flex justify-center w-full mt-8 mb-12">
+  <nav class="navbar bg-white rounded-2xl shadow-lg px-8 py-3 max-w-4xl w-full">
+    <div class="navbar-start">
+      <a href="/" class="text-2xl font-extrabold text-blue-700 normal-case cursor-default select-none pointer-events-none">Text Toolbox</a>
     </div>
-    <ul id="nav-menu" class="hidden md:hidden flex-col space-y-2 pb-4">
-      <li><a href="/" class="block px-3 py-2 rounded-lg hover:bg-blue-50 hover:text-blue-700 transition">Word Counter</a></li>
-      <li><a href="/text-case-converter" class="block px-3 py-2 rounded-lg hover:bg-blue-50 hover:text-blue-700 transition">Text Case Converter</a></li>
-      <li><a href="/remove-duplicate-lines" class="block px-3 py-2 rounded-lg hover:bg-blue-50 hover:text-blue-700 transition">Remove Duplicate Lines</a></li>
-      <li><a href="/word-frequency-analyzer" class="block px-3 py-2 rounded-lg hover:bg-blue-50 hover:text-blue-700 transition">Word Frequency Analyzer</a></li>
-    </ul>
-  </div>
-  <script is:inline>
-    const btn = document.getElementById('nav-toggle');
-    const menu = document.getElementById('nav-menu');
-    
-    btn.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
-    });
-  </script>
-</header>
+    <div class="navbar-center">
+      <ul class="menu menu-horizontal gap-2 text-lg">
+        <li><a href="/" class="hover:bg-blue-100 rounded-lg px-4 py-2">Word Counter</a></li>
+        <li><a href="/text-case-converter" class="hover:bg-blue-100 rounded-lg px-4 py-2">Case Converter</a></li>
+        <li><a href="/word-frequency-analyzer" class="hover:bg-blue-100 rounded-lg px-4 py-2">Frequency Analyzer</a></li>
+        <li><a href="/remove-duplicate-lines" class="hover:bg-blue-100 rounded-lg px-4 py-2">Remove Duplicates</a></li>
+      </ul>
+    </div>
+    <!-- Optional: navbar-end for future actions -->
+    <!-- <div class="navbar-end">
+      <button class="btn btn-square btn-ghost">
+        <svg ...></svg>
+      </button>
+    </div> -->
+  </nav>
+</div>

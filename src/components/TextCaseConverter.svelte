@@ -3,6 +3,7 @@
   let output = '';
   let mode = 'uppercase';
   let copySuccess = false;
+  import AppTextarea from './AppTextarea.svelte';
 
   function convertText() {
     try {
@@ -49,7 +50,7 @@
   }
 
   // Convert on every change
-  $: convertText();
+  // $: convertText();
   
   async function copyToClipboard() {
     if (!output) return;
@@ -86,29 +87,37 @@
       <option value="snakecase">snake_case</option>
       <option value="kebabcase">kebab-case</option>
     </select>
+    <button
+      type="button"
+      class="px-4 py-2 bg-blue-700 hover:bg-blue-800 text-white font-semibold rounded-lg transition"
+      on:click={convertText}
+    >
+      Convert
+    </button>
   </div>
   
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
     <div>
       <label for="input-textarea" class="font-semibold text-gray-700 mb-2 block">Input Text:</label>
-      <textarea
+      <AppTextarea
         id="input-textarea"
-        class="w-full border border-gray-300 rounded-lg px-4 py-3 text-base bg-white text-gray-900 resize-y focus:outline-none focus:ring-2 focus:ring-blue-500"
-        rows="8"
         bind:value={input}
         placeholder="Paste or type your text here..."
-      ></textarea>
+        rows={8}
+        ariaLabel="Input Text"
+      />
     </div>
     
     <div>
       <label for="result-output" class="font-semibold text-gray-700 mb-2 block">Result:</label>
-      <textarea
+      <AppTextarea
         id="result-output"
-        class="w-full border border-gray-300 rounded-lg px-4 py-3 text-base bg-gray-50 text-gray-900 resize-y focus:outline-none focus:ring-2 focus:ring-blue-500"
-        rows="8"
         value={output}
-        readonly
-      ></textarea>
+        placeholder="Result will appear here..."
+        rows={8}
+        ariaLabel="Result"
+        readonly={true}
+      />
     </div>
   </div>
   
