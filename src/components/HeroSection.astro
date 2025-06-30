@@ -1,17 +1,33 @@
 ---
-const {
-    title = "Free Online Text Tools",
-    subtitle = "Instantly analyze and transform your text. <br class='hidden sm:inline' /> From word counts to case conversions, our free, private tools help writers, students, and professionals work smarter—no registration needed.",
-} = Astro.props;
+// Hero section
 ---
 
-<section class="py-8 pb-4 mb-1 text-center">
-    <h1
-        class="text-4xl sm:text-5xl font-extrabold mb-4 text-blue-800 drop-shadow"
-    >
-        {title}
-    </h1>
-    <p class="text-lg sm:text-xl text-gray-700 mb-6 max-w-2xl mx-auto">
-        <span set:html={subtitle} />
-    </p>
+<section class="text-center mb-8">
+  <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+    Free Online Text Tools
+  </h1>
+  <p class="text-xl text-gray-600 mb-6 max-w-2xl mx-auto">
+    Professional text utilities for writers, students, and content creators. 
+    <span class="font-semibold text-blue-600">100% free, private, and instant.</span>
+  </p>
+  <div class="flex flex-wrap justify-center gap-4 text-sm text-gray-500">
+    <span class="flex items-center gap-1">
+      <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+      </svg>
+      No registration
+    </span>
+    <span class="flex items-center gap-1">
+      <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+      </svg>
+      Privacy first
+    </span>
+    <span class="flex items-center gap-1">
+      <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+      </svg>
+      Mobile friendly
+    </span>
+  </div>
 </section>

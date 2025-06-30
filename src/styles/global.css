@@ -1,5 +1,5 @@
 @import "tailwindcss";
-
+@plugin "daisyui";
 /* Base transitions for theme changes */
 *, *::before, *::after {
   transition: background-color 0.2s ease-in-out,
@@ -23,4 +23,10 @@
   .ad-col {
     display: none !important;
   }
+}
+
+/* Focus styles for better accessibility */
+.focus-visible:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
 }
