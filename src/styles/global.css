@@ -24,3 +24,9 @@
     display: none !important;
   }
 }
+
+/* Focus styles for better accessibility */
+.focus-visible:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}

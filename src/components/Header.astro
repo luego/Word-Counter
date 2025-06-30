@@ -1,54 +1,36 @@
-<header class="bg-white shadow-md max-w-2xl mx-auto mt-4 rounded">
-  <nav class="px-4 py-3 flex flex-col items-center">
-    <div class="w-full flex items-center justify-between">
-      <a href="/" class="text-2xl font-extrabold text-blue-700">TextTools</a>
+<header class="bg-white shadow-sm border-b border-gray-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center py-4">
+      <div class="flex items-center">
+        <a href="/" class="text-xl font-bold text-blue-600 hover:text-blue-800 transition-colors">
+          Text Toolbox
+        </a>
+      </div>
+      <nav class="hidden md:flex space-x-8">
+        <a href="/" class="text-gray-700 hover:text-blue-600 transition-colors">Word Counter</a>
+        <a href="/text-case-converter" class="text-gray-700 hover:text-blue-600 transition-colors">Case Converter</a>
+        <a href="/word-frequency-analyzer" class="text-gray-700 hover:text-blue-600 transition-colors">Frequency Analyzer</a>
+        <a href="/remove-duplicate-lines" class="text-gray-700 hover:text-blue-600 transition-colors">Remove Duplicates</a>
+      </nav>
       <button class="md:hidden p-2" id="nav-toggle" aria-label="Open menu">
         <svg class="w-6 h-6 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
     </div>
-    <ul id="nav-menu" class="hidden md:flex flex-row flex-wrap gap-6 text-base font-semibold text-gray-700 mt-4 justify-center">
-      <li><a href="/" class="px-3 py-2 rounded-lg hover:bg-blue-50 hover:text-blue-700 transition whitespace-nowrap">Word Counter</a></li>
-      <li><a href="/text-case-converter" class="px-3 py-2 rounded-lg hover:bg-blue-50 hover:text-blue-700 transition whitespace-nowrap">Text Case Converter</a></li>
-      <li><a href="/remove-duplicate-lines" class="px-3 py-2 rounded-lg hover:bg-blue-50 hover:text-blue-700 transition whitespace-nowrap">Remove Duplicate Lines</a></li>
-      <li><a href="/word-frequency-analyzer" class="px-3 py-2 rounded-lg hover:bg-blue-50 hover:text-blue-700 transition whitespace-nowrap">Word Frequency Analyzer</a></li>
-    </ul>
-    <ul id="nav-menu-mobile" class="md:hidden hidden flex-col bg-white absolute right-4 top-16 shadow-lg rounded-lg p-4 gap-2 z-50">
+    <ul id="nav-menu" class="hidden md:hidden flex-col space-y-2 pb-4">
       <li><a href="/" class="block px-3 py-2 rounded-lg hover:bg-blue-50 hover:text-blue-700 transition">Word Counter</a></li>
       <li><a href="/text-case-converter" class="block px-3 py-2 rounded-lg hover:bg-blue-50 hover:text-blue-700 transition">Text Case Converter</a></li>
       <li><a href="/remove-duplicate-lines" class="block px-3 py-2 rounded-lg hover:bg-blue-50 hover:text-blue-700 transition">Remove Duplicate Lines</a></li>
       <li><a href="/word-frequency-analyzer" class="block px-3 py-2 rounded-lg hover:bg-blue-50 hover:text-blue-700 transition">Word Frequency Analyzer</a></li>
     </ul>
-  </nav>
+  </div>
   <script is:inline>
     const btn = document.getElementById('nav-toggle');
-    const menuMobile = document.getElementById('nav-menu-mobile');
-
-    btn?.addEventListener('click', (e) => {
-      e.stopPropagation();
-      menuMobile.classList.toggle('hidden');
-      menuMobile.classList.toggle('flex');
-    });
-
-    // Hide menu when clicking outside or on a link
-    document.addEventListener('click', (e) => {
-      if (
-        !menuMobile.classList.contains('hidden') &&
-        !menuMobile.contains(e.target) &&
-        e.target !== btn
-      ) {
-        menuMobile.classList.add('hidden');
-        menuMobile.classList.remove('flex');
-      }
-    });
-
-    // Hide menu when clicking a link inside the menu
-    menuMobile.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        menuMobile.classList.add('hidden');
-        menuMobile.classList.remove('flex');
-      });
+    const menu = document.getElementById('nav-menu');
+    
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
     });
   </script>
 </header>
