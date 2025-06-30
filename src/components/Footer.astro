@@ -1,16 +1,17 @@
 ---
 // Footer component
+const year = new Date().getFullYear();
 ---
 
-<footer class="bg-white border-t border-gray-200 mt-12">
+<footer class="bg-white border-t border-gray-200 mt-12 rounded-2xl">
   <div class="max-w-2xl mx-auto px-4 py-8">
     <div class="text-center text-gray-600 text-sm">
-      <p>&copy; 2024 Text Toolbox. Free online text utilities for writers, students, and professionals.</p>
-      <p class="mt-2">
+      <p>&copy; {year} Text Toolbox. Free online text utilities for writers, students, and professionals.</p>
+      <!-- <p class="mt-2">
         <a href="/privacy" class="hover:text-blue-600 transition-colors">Privacy</a> • 
         <a href="/terms" class="hover:text-blue-600 transition-colors">Terms</a> • 
         <a href="/contact" class="hover:text-blue-600 transition-colors">Contact</a>
-      </p>
+      </p> -->
     </div>
   </div>
 </footer>
