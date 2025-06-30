@@ -84,8 +84,9 @@
 
 <div class="bg-white rounded-lg border border-gray-200 p-4 mb-4">
   <div class="flex flex-wrap items-center gap-3">
-    <label class="text-sm font-medium text-gray-700">Export as:</label>
+    <label for="export-type" class="text-sm font-medium text-gray-700">Export as:</label>
     <select 
+      id="export-type"
       bind:value={exportType}
       class="border border-gray-300 rounded px-2 py-1 text-sm bg-white text-gray-900"
     >

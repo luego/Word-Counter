@@ -1,5 +1,6 @@
 <script>
   import AppTextarea from './AppTextarea.svelte';
+  import ExportUtility from './ExportUtility.svelte';
   // --- Accessibility & UX ---
   let text = "";
   let copySuccess = false;
